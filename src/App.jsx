@@ -63,9 +63,14 @@ const useCountry = (name) => {
           }
           else {
             // if there are too many matches
+            console.log('none or too many found', countries)
             setCountry(null)
           }
 
+        })
+        .catch(error => {
+          console.error('Error:', error)
+          setCountry({ found: false })
         })
     }
   }, [name])
